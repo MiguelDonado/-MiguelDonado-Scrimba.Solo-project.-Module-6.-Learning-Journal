@@ -1,0 +1,268 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+body { 
+    margin: 0;
+    padding: 0;    
+    font-family: "Source Sans 3", sans-serif;
+}
+/*==================
+HEADER
+====================*/
+header {
+    display: grid;
+    grid-template-columns: minmax(max-content, 1fr) max-content max-content;
+    grid-template-areas: "title home about";
+    grid-gap: 1.25em;
+    padding: 1.5em;
+}
+.header-title {
+    grid-area: title;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    gap: 0.5em;
+}
+.title-href {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.header-home, 
+.header-about {
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    align-self: center;
+    white-space: nowrap;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+.header-home:visited,
+.header-about:visited,
+.title-href:visited{
+    color: black;
+}
+
+.header-home {
+    grid-area: home;
+}
+.header-about {
+    grid-area: about;
+}
+
+/*================
+DEFAULT ARTICLE
+================*/
+
+.default-article {
+    padding: 1.5em;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1.5em;
+}
+.default-title,
+.default-descr,
+.default-how,
+.default-how-descr,
+.default-start,
+.default-start-descr {
+    margin: 0;
+}
+
+.default-icon {
+    font-size: 5em;
+}
+
+.default-article > p {
+    font-size: 1.25rem;
+}
+
+.default-title {
+    font-size: 2.25rem;
+    line-height: 1;
+}
+
+/*================
+DEFAULT ARTICLE
+================*/
+
+.default-article {
+    padding: 1.5em;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1.5em;
+}
+.default-date,
+.default-title,
+.default-descr,
+.default-how,
+.default-how-descr,
+.default-start,
+.default-start-descr {
+    margin: 0;
+}
+
+.default-article > p {
+    font-size: 1.25rem;
+}
+
+p.default-date {
+    order: -1;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+.default-title {
+    font-size: 2.25rem;
+    line-height: 1;
+}
+
+.default-img {
+    margin: 1em 0;   
+    width: 100%;
+}
+
+/*=================
+RECENTS ARTICLES
+===================*/
+
+.recent-posts {
+    text-align: center;
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.recent-articles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(315px, 1fr));
+    grid-gap: 2em;
+    padding-bottom: 4em;
+}
+.recent-article {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 0.75em;
+    padding: 1.5em 1.5em 0;
+}
+.recent-article-title,
+.recent-article-descr,
+.recent-article-date,
+.recent-article-img {
+    margin: 0;
+}
+.recent-article-img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    order: -2;
+}
+.recent-article-date {
+    order: -1;
+    text-transform: uppercase;
+    font-size: 1.125rem;
+}
+.recent-article-title {
+    font-size: 1.75rem;
+}
+.recent-article-descr {
+    font-size: 1.125rem;
+    color: darkslategray;
+}
+
+/*====================
+        FOOTER
+======================*/
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+/*=================
+MEDIA QUERIES
+===================*/
+
+
+@media (min-width: 768px) {
+    header {
+        grid-gap: 2.5em;
+        padding: 3.5em 3.5em 1.5em;
+    }
+    .title-href {
+        font-size: 1.75rem;
+    }
+    .header-home,
+    .header-about {
+        font-size: 1.25rem;
+    }
+    .default-article {
+        display: grid;
+        padding: 3.5em;
+        grid-template-columns: 2.5em 1fr 2.5em;
+        grid-gap: 1.5em;
+        grid-template-areas:
+        ". date ."
+        ". title ."
+        ". descr ."
+        "img img img"
+        ". how ."
+        ". how-descr ."
+        ". startt ."
+        ". start-descr .";
+    }
+    .default-date,
+    .default-title,
+    .default-descr,
+    .default-how,
+    .default-how-descr,
+    .default-startt,
+    .default-start-descr {
+        margin: 0;
+    }
+    
+    .default-title {
+        font-size: 2.25rem;
+        line-height: 1;
+    }
+    .default-article > h3 {
+        font-size: 1.75rem;
+    }
+    .default-article > p {
+        font-size: 1.35rem;
+        line-height: 1.5;
+    }
+
+    p.default-date {
+        order: -1;
+        text-transform: uppercase;
+        font-size: 1.25rem;
+    }
+    .default-date { grid-area: date }
+    .default-title { grid-area: title }
+    .default-descr { grid-area: descr }
+    .default-how { grid-area: how }
+    .default-how-descr { grid-area: how-descr }
+    .default-start { grid-area: startt}
+    .default-start-descr { grid-area: start-descr }
+    .default-img {
+        margin: 1em 0;   
+        width: 100%;
+        grid-area: img;
+    }
+    .recent-posts{
+        font-size: 1.75rem;
+    }
+    .recent-article{
+        padding: 2.5em 3.5em 0;
+    }
+    footer {
+        padding-top: 1.25em;
+        font-size: 1.25rem; 
+        letter-spacing: 1px; 
+    }
+}
